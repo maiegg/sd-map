@@ -8,18 +8,17 @@ from shapely.geometry import Polygon, Point
 # import contextily as ctx
 
 def read():
-    pop2010 = pd.read_csv('2010_Census_Population_by_ZIP_Code_20250210.csv', dtype=str)
+    pop2010 = pd.read_csv('data/2010_Census_Population_by_ZIP_Code_20250210.csv', dtype=str)
     pop2010.population = pop2010.population.astype(int)
     pop2010 = pop2010.groupby(['zip','yr_id']).population.sum().reset_index()
 
-    pop2020 = pd.read_csv('2020_Census_Population_by_Age__Sex_and_Ethnicity_by_ZIP_Code_20250210.csv', dtype=str)
+    pop2020 = pd.read_csv('data/2020_Census_Population_by_Age__Sex_and_Ethnicity_by_ZIP_Code_20250210.csv', dtype=str)
     pop2020.population = pop2020.population.astype(int)
     pop2020 = pop2020.groupby(['zip','yr_id']).population.sum().reset_index()
 
-    fires = gpd.read_file('California_Fire_Perimeters_(all).geojson')
-    zips = gpd.read_file('California_Fire_Perimeters_(all).geojson')
+    fires = gpd.read_file('data/California_Fire_Perimeters_(all).geojson')
 
-    df = pd.read_csv('ZIP_CODES_20250211.csv', dtype=str)
+    df = pd.read_csv('data/ZIP_CODES_20250211.csv', dtype=str)
     df['geometry'] = df['the_geom'].apply(wkt.loads)
     zips = gpd.GeoDataFrame(df, geometry='geometry',crs='EPSG:4326')
     zips = zips[['ZIP','geometry']]
