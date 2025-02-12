@@ -7,5 +7,5 @@
 
 Inspired by: https://waterprogramming.wordpress.com/2022/09/08/bivariate-choropleth-maps/
 
-Finished product (process writeup WIP):
+Rough draft (process writeup WIP):
 ![image](pop_vs_pop_change.png)
