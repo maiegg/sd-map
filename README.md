@@ -5,6 +5,8 @@
 ## Output 
 Here is the output - a map of San Diego county, shaded according to the interaction of two variables: Population in 2020 Census vs. Population Change 2010 to 2020 Census. The plot on the right adds a layer showing wildfire perimeters since 1980. Altogether, these datasets might come together to answer a question like: "What fast-growing or highly populated areas of SD county are likely at higher wildfire risk?" 
 
+Overall, what I take away from this chart is that the highest-risk, fastest-growing areas look like Scripps Ranch and Poway on the north inland side of the city, and another similar zone in Otay/Chula Vista on the south side of the city. It's hard to tell without a basemap, but another high-risk, high-growth area looks to be near Escondido or Valley Center. Follow-up questions might ask if there's a relationship between fire risk and population growth: for example, if fires are started by people, does population growth lead to more fires? Or, perhaps fire-prone exurbs may be more affordable; do people tend to move to these areas as a way to find more affordable housing?  
+
 ![image](pop_vs_pop_change.png)
 
 Inspired by: https://waterprogramming.wordpress.com/2022/09/08/bivariate-choropleth-maps/
@@ -29,7 +31,7 @@ Inspired by: https://waterprogramming.wordpress.com/2022/09/08/bivariate-choropl
 - From there, I use a combination of relational and spatial joins to create a geoDataFrame storing, for each pixel, its geometry, its population in 2020, 2010, the % change in population between 2010 and 2020, and the number of wildifre perimeters intersecting that square kilometer since 1980. 
 - Colorscale: I defined the colorscale as a 3x3 grid of colors to mimic the example. Each pixel is assigned a color based on the quantile it ranks in 2 variables (bottom, middle, or top third).
 
-**Fun fact: ZIP codes are actually not polygons contiguously covering a city. They are technically linear features comoprised of groups of street addresses. [link](https://www.nku.edu/~longa/modules/av/lab/zips/zip_codes.html#:~:text=Zip%20codes%20are%20linear%20features,be%20covered%20by%20rational%20polygons.)
+**Fun fact that has been relevant in past work I've done: ZIP codes are actually not polygons contiguously covering a city. They are technically linear features comoprised of groups of street addresses. [More info here](https://www.nku.edu/~longa/modules/av/lab/zips/zip_codes.html#:~:text=Zip%20codes%20are%20linear%20features,be%20covered%20by%20rational%20polygons.)
 
 ## Readability considerations and other ideas 
 - Red vs. Blue: to mimic the example, I used a teal/pink/purple colorscale. (Accidental Padres alt. colors?). A blue/red/purple or yellow/blue/green colorscale might be more easily interetable as more readers are familiar with those color combinations. 
@@ -37,3 +39,4 @@ Inspired by: https://waterprogramming.wordpress.com/2022/09/08/bivariate-choropl
 - Basemap and Interaction: it would be much more user-friendly to map this on a zoomable HTML object, with a basemap and (possibly) with the ability to toggle layers on or off. This can be done with a little extra working using Folium. 
 - Infrequent events: Aggregating the number of fires per square-km didn't work as well as I had hoped. It looks relatively informative in the first plot above (yellow/green/purple), but fires are rare enough that the percentile-based color selection doesn't work well. Most pixels have 0 or 1 fire perimeter since 1980, making for an uninteresting and uninformative amount of variation in the data. Consider if there are other ways to summarize or map infrequently-ocurring events. 
 - Spatial statistics: in a real problem setting, I would suggest looking into some spatial correlation methods like Cross-Moran's I. Some of these are available in software libraries (Python's pointpat comes to mind) or built into software tools like ArcGIS, although they seem to be more commonly use for measuring autocorrelation (clustering vs. dispersion) of point processes. Visually looking at the layering of two or more datasets is only an interesting starting point.
+- CRS: I played fast and loose with the coordinate reference systems here, and many source datasets did not document CRSs for geoemetries. I think it probably worked OK since things appear to have shown up correctly on the maps, but this is another area I would check for accuracy. 
