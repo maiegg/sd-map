@@ -1,11 +1,13 @@
 # Work in progresss! 
 # My favorite* data visualization: Bivariate Choropleths 
-*These maps are fun to make and pack a lot of information into a small space. However, they can be difficult to read and interpret. It's realistically not a visualization I would recommend for routing reporting or most practical use cases, but they can be eye catching. I'll take a stab at making one and describe the process.
+*These maps are fun to make and pack a lot of information into a small space. However, they can be difficult to read and interpret. It's realistically not a visualization I would recommend for routing reporting or most practical use cases, but they can be eye catching. 
+
+I'll take a stab at making one and describe the process.
 
 ## Output 
-Here is the output - a map of San Diego county, shaded according to the interaction of two variables: Population in 2020 Census vs. Population Change 2010 to 2020 Census. The plot on the right adds a layer showing wildfire perimeters since 1980. Altogether, these datasets might come together to answer a question like: "What fast-growing or highly populated areas of SD county are likely at higher wildfire risk?" 
+Here is the output - a map of San Diego county, shaded according to the interaction of two variables: Population in 2020 Census vs. Population Change 2010 to 2020 Census. The plot on the right adds a layer showing wildfire perimeters since 1980. These datasets might come together to answer a question like: "What fast-growing or highly populated areas of SD county are likely at higher wildfire risk?" 
 
-Overall, what I take away from this chart is that the highest-risk, fastest-growing areas look like Scripps Ranch and Poway on the north inland side of the city, with similar zones in Otay/Chula Vista on the south side of the city and near Escondido or Valley Center (hard to tell without a basemap). This makes sense compared to what I know about fire history and real estate trends in the county. Follow-up questions might ask if there's a relationship between fire risk and population growth: for example, if fires are started by people, does population growth lead to more fires? Or, perhaps fire-prone exurbs may be more affordable; do people tend to move to these areas as a way to find more affordable housing?  
+Overall, what I take away from this is that the highest-risk, fastest-growing areas look like Scripps Ranch and Poway on the north inland side of the city, with similar zones in Otay/Chula Vista on the south side of the city and near Escondido or Valley Center (hard to tell precisely without a basemap). This makes sense against what I know about fire history and real estate trends in the county. Follow-up questions might ask if there's a relationship between fire risk and population growth: for example, if fires are started by people, does population growth lead to more fires? Or, perhaps fire-prone exurbs may be more affordable; do people tend to move to these areas as a way to find more affordable housing, despite the risks?  
 
 ![image](pop_vs_pop_change.png)
 
