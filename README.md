@@ -29,7 +29,7 @@ Inspired by: https://waterprogramming.wordpress.com/2022/09/08/bivariate-choropl
 - From there, I use a combination of relational and spatial joins to create a geoDataFrame storing, for each pixel, its geometry, its population in 2020, 2010, the % change in population between 2010 and 2020, and the number of wildifre perimeters intersecting that square kilometer since 1980. 
 - Colorscale: I defined the colorscale as a 3x3 grid of colors to mimic the example. Each pixel is assigned a color based on the quantile it ranks in 2 variables (bottom, middle, or top third).
 
-**fun fact: ZIP codes are actually not polygons contiguously covering a city, the way we might thinkg of them. Technically, according to the postal service, they are collections of street addresses. As new roads and addresses are developed, the boundaries of ZIP codes change. However, for practical purposes, many ZIP code shapefiles like this one are available as polygons, which is much easier to work with. 
+**Fun fact: ZIP codes are actually not polygons contiguously covering a city. They are technically linear features comoprised of groups of street addresses. [link](https://www.nku.edu/~longa/modules/av/lab/zips/zip_codes.html#:~:text=Zip%20codes%20are%20linear%20features,be%20covered%20by%20rational%20polygons.)
 
 ## Readability considerations and other ideas 
 - Red vs. Blue: to mimic the example, I used a teal/pink/purple colorscale. (Accidental Padres alt. colors?). A blue/red/purple or yellow/blue/green colorscale might be more easily interetable as more readers are familiar with those color combinations. 
